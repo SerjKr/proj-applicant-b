@@ -6,13 +6,14 @@ use App\Http\Requests\StoreRequest;
 use App\UseCases\FibonacciService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class FibonacciNumberController extends Controller
 {
     /**
      * @var FibonacciService
      */
-    private $service;
+    private FibonacciService $service;
 
     public function __construct(FibonacciService $service)
     {
@@ -22,9 +23,9 @@ class FibonacciNumberController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return void
+     * @return Response
      */
-    public function index()
+    public function index(): Response
     {
         //
     }
@@ -35,7 +36,7 @@ class FibonacciNumberController extends Controller
      * @param StoreRequest $request
      * @return JsonResponse
      */
-    public function store(StoreRequest $request)
+    public function store(StoreRequest $request): JsonResponse
     {
         $fibonacci = $this->service->nearestFibonacci($request->my_number);
         $fib = $this->service->create($fibonacci);
@@ -47,9 +48,9 @@ class FibonacciNumberController extends Controller
      * Display the specified resource.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function show($id)
+    public function show(int $id): Response
     {
         //
     }
@@ -59,9 +60,9 @@ class FibonacciNumberController extends Controller
      *
      * @param Request $request
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, int $id): Response
     {
         //
     }
@@ -70,9 +71,9 @@ class FibonacciNumberController extends Controller
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function destroy($id)
+    public function destroy(int $id): Response
     {
         //
     }

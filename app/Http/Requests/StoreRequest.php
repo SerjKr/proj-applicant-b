@@ -11,7 +11,7 @@ class StoreRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             'my_number' => 'required|numeric|min:0',
